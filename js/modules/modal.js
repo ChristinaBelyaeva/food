@@ -17,14 +17,20 @@ function closeModal(modalSelector) {
 function modal(triggerSelector, modalSelector) {
     // modal
     const modal = document.querySelector(modalSelector),
-    btnClose = modal.querySelector("[data-close]"),
+    btnClose = document.querySelector(".modal__close"),
     btnsOpenModal = document.querySelectorAll(triggerSelector);
+    console.log(btnClose);
+
 
     btnsOpenModal.forEach(btn => {
     btn.addEventListener("click", () => openModal(modalSelector));
     });
 
-    btnClose.addEventListener("click", closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target.getAttribute('data-close') == "") {
+            closeModal(modalSelector);
+        }
+    });
 
     // закрытие модального окна по тапу мимо него
     modal.addEventListener("click", (e) => {

@@ -1,4 +1,6 @@
-"use strict";
+require('es6-promise').polyfill();
+import 'nodelist-foreach-polyfill';
+
 import calculator from "./modules/calculator";
 import slider from "./modules/slider";
 import forms from "./modules/forms";
